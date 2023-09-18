@@ -1,0 +1,11 @@
+{
+  "coverage_options": {
+    "minimum_coverage": 100
+  },
+  "skip_files": [
+    "lib/fields_demo/application.ex",
+    "lib/fields_demo_web/components/core_components.ex",
+    "lib/fields_demo_web/telemetry.ex",
+    "test/"
+  ]
+}
