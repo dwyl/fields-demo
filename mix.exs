@@ -9,7 +9,16 @@ defmodule FieldsDemo.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      # coverage ref: https://github.com/dwyl/phoenix-chat-example#13-what-is-not-tested
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        c: :test,
+        coveralls: :test,
+        "coveralls.json": :test,
+        "coveralls.html": :test,
+        t: :test
+      ]
     ]
   end
 
@@ -45,7 +54,13 @@ defmodule FieldsDemo.MixProject do
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+
+      # The star of the show: github.com/dwyl/fields
+      {:fields, "~> 2.10.3"},
+
+      # Track test coverage: github.com/parroty/excoveralls
+      {:excoveralls, "~> 0.16.0", only: [:test, :dev]}
     ]
   end
 
@@ -63,7 +78,9 @@ defmodule FieldsDemo.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"],
+      c: ["coveralls.html"],
+      t: ["test"]
     ]
   end
 end
