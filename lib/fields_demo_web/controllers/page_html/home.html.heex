@@ -1,4 +1,38 @@
 <.flash_group flash={@flash} />
+
+<fieldset class="ml-4 mt-4">
+  <legend class="sr-only">Plan</legend>
+  <div class="space-y-5">
+    <div class="relative flex items-start">
+      <div class="flex h-6 items-center">
+        <input id="small" aria-describedby="small-description" name="plan" type="radio" checked class="h-4 w-4 border-gray-300 text-green-600 focus:ring-green-600">
+      </div>
+      <div class="ml-3 text-sm leading-6">
+        <label for="small" class="font-medium text-gray-900">09:00 - 12:00 Manhã | Mornings</label>
+        <p id="small-description" class="text-gray-500">Inclui lanche saudável | Includes healthy snacks</p>
+      </div>
+    </div>
+    <div class="relative flex items-start">
+      <div class="flex h-6 items-center">
+        <input id="medium" aria-describedby="medium-description" name="plan" type="radio" class="h-4 w-4 border-gray-300 text-green-600 focus:ring-green-600">
+      </div>
+      <div class="ml-3 text-sm leading-6">
+        <label for="medium" class="font-medium text-gray-900">13:00 - 16:00 Tarde | Afternoon</label>
+        <p id="medium-description" class="text-gray-500">Inclui lanche saudável | Includes healthy snacks</p>
+      </div>
+    </div>
+    <div class="relative flex items-start">
+      <div class="flex h-6 items-center">
+        <input id="large" aria-describedby="large-description" name="plan" type="radio" class="h-4 w-4 border-gray-300 text-green-600 focus:ring-green-600">
+      </div>
+      <div class="ml-3 text-sm leading-6">
+        <label for="large" class="font-medium text-gray-900">09:00 - 16:00 Dia Completo | Full Day</label>
+        <p id="large-description" class="text-gray-500">Inclui almoço e lanche saudável | Includes lunch and healthy snacks</p>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
 <div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]">
   <svg
     viewBox="0 0 1480 957"

@@ -29,9 +29,39 @@ both `@dwyl` and the wider `Elixir` community.
 
 # How?
 
+Run the demo on your computer!
+
+## 1. Clone from `GitHub`
+
+Clone the project from `GitHub`:
+
+```sh
+git clone git@github.com:dwyl/fields-demo.git
+```
+
+## 2. Setup Dependencies & Database
+
+Setup the project on `localhost`:
+
+```sh
+mix setup
+```
+
+## 3. Run the App
+
+Run the app:
+
+```sh
+mix s
+```
+
+Open the app in your browser,
+you should expect to see:
+
+# TODO: add GIF of inputting data.
 
 
-## Build Log
+# Build Log
 
 This is a comprehensive step-by-step log 
 of everything we did when creating this demo app.
@@ -41,7 +71,7 @@ please
 [open an issue](https://github.com/dwyl/fields-demo/issues)
 
 
-### 1. Create a New Phoenix App
+## 1. Create a New Phoenix App
 
 Create a New Phoenix App:
 
@@ -52,7 +82,7 @@ mix phx.new fields_demo --no-mailer --no-dashboard --no-gettext
 > **Note**: We don't need to send email, have a fancy dashboard or translation. 
 
 
-### 2. Setup Coverage
+## 2. Setup Coverage
 
 So we know which files are covered by tests,
 we setup coverage following the steps outlined in:
@@ -105,7 +135,7 @@ But most of the untested code is in:
 `lib/fields_demo_web/components/core_components.ex`
 which we aren't going to _use_ in this project ...
 
-#### 2.1 Ignore Unused "System" Files
+### 2.1 Ignore Unused "System" Files
 
 Create a file with called `coveralls.json`
 and add the following contents:
@@ -159,7 +189,7 @@ COV    FILE                                        LINES RELEVANT   MISSED
 
 Now we can move on!
 
-## 3. Run the Phoenix App!
+# 3. Run the Phoenix App!
 
 Before we start adding features,
 let's run the default `Phoenix` App.
@@ -182,6 +212,25 @@ you should see something similar to the following:
 
 That completes 2 minutes of "setup".
 Let's add a schema!
+
+<div align="center">
+
+# Register for _Awesome_ Conf! 
+
+<img width="286" alt="awesome smiley" src="https://github.com/dwyl/content/assets/194400/dc803ac9-97e9-4088-9c3d-819d0de42aec">
+
+</div>
+
+In this demo App 
+we're going to create
+a registration form
+for our fictitious
+**_Awesome_ Conference**.
+
+
+
+
+
 
 # FieldsDemo
 
