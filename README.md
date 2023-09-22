@@ -227,9 +227,54 @@ a registration form
 for our fictitious
 **_Awesome_ Conference**.
 
+# 4. Create `attendee` schema
+
+The goal is to allow `people` attending **_Awesome_ Conf**
+to submit the following data:
+
++ `first_name` - how we greet you. Will appear on your conference pass.
++ `last_name` - your family name. Will appear on you conference pass.
++ `email` - to confirm attendance
++ `phone_number`  - to verify your access when attending the secret event.
++ `address` - so we can send the welcome pack
++ `address_line_2` - if your address has multiple lines.
++ `postcode` - for the address.
++ `gender` - for venue capacity planning.
++ `dietary_preference` - for meals and snacks provided by the conference.
++ `website` - share your awesomeness and have it as a QR code on your conference pass.
++ `description` - brief description of your awesome project.
++ `feedback` - Feedback or suggestions
 
 
+## 4.1 `gen.schema`
 
+Using the 
+[`mix phx.gen.live`](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html)
+command, 
+run: 
+```sh
+mix phx.gen.live Accounts Attendee attendees first_name:string last_name:string email:string --no-context
+```
+
+You should expect to see output similar to the following:
+
+```sh
+* creating lib/fields_demo_web/live/attendee_live/show.ex
+* creating lib/fields_demo_web/live/attendee_live/index.ex
+* creating lib/fields_demo_web/live/attendee_live/form_component.ex
+* creating lib/fields_demo_web/live/attendee_live/index.html.heex
+* creating lib/fields_demo_web/live/attendee_live/show.html.heex
+* creating test/fields_demo_web/live/attendee_live_test.exs
+
+Add the live routes to your browser scope in lib/fields_demo_web/router.ex:
+
+    live "/attendees", AttendeeLive.Index, :index
+    live "/attendees/new", AttendeeLive.Index, :new
+    live "/attendees/:id/edit", AttendeeLive.Index, :edit
+
+    live "/attendees/:id", AttendeeLive.Show, :show
+    live "/attendees/:id/show/edit", AttendeeLive.Show, :edit
+```
 
 
 # FieldsDemo

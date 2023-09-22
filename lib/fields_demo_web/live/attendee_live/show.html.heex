@@ -1,0 +1,28 @@
+<.header>
+  Attendee <%= @attendee.id %>
+  <:subtitle>This is a attendee record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/attendees/#{@attendee}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit attendee</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="First name"><%= @attendee.first_name %></:item>
+  <:item title="Last name"><%= @attendee.last_name %></:item>
+  <:item title="Email"><%= @attendee.email %></:item>
+</.list>
+
+<.back navigate={~p"/attendees"}>Back to attendees</.back>
+
+<.modal :if={@live_action == :edit} id="attendee-modal" show on_cancel={JS.patch(~p"/attendees/#{@attendee}")}>
+  <.live_component
+    module={FieldsDemoWeb.AttendeeLive.FormComponent}
+    id={@attendee.id}
+    title={@page_title}
+    action={@live_action}
+    attendee={@attendee}
+    patch={~p"/attendees/#{@attendee}"}
+  />
+</.modal>

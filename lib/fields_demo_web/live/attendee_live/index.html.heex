@@ -1,0 +1,43 @@
+<.header>
+  Listing Attendees
+  <:actions>
+    <.link patch={~p"/attendees/new"}>
+      <.button>New Attendee</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="attendees"
+  rows={@streams.attendees}
+  row_click={fn {_id, attendee} -> JS.navigate(~p"/attendees/#{attendee}") end}
+>
+  <:col :let={{_id, attendee}} label="First name"><%= attendee.first_name %></:col>
+  <:col :let={{_id, attendee}} label="Last name"><%= attendee.last_name %></:col>
+  <:col :let={{_id, attendee}} label="Email"><%= attendee.email %></:col>
+  <:action :let={{_id, attendee}}>
+    <div class="sr-only">
+      <.link navigate={~p"/attendees/#{attendee}"}>Show</.link>
+    </div>
+    <.link patch={~p"/attendees/#{attendee}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, attendee}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: attendee.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="attendee-modal" show on_cancel={JS.patch(~p"/attendees")}>
+  <.live_component
+    module={FieldsDemoWeb.AttendeeLive.FormComponent}
+    id={@attendee.id || :new}
+    title={@page_title}
+    action={@live_action}
+    attendee={@attendee}
+    patch={~p"/attendees"}
+  />
+</.modal>
