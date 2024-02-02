@@ -4,9 +4,9 @@ defmodule FieldsDemoWeb.AttendeeLiveTest do
   import Phoenix.LiveViewTest
   import FieldsDemo.AccountsFixtures
 
-  @create_attrs %{first_name: "some first_name", last_name: "some last_name", email: "some email"}
-  @update_attrs %{first_name: "some updated first_name", last_name: "some updated last_name", email: "some updated email"}
-  @invalid_attrs %{first_name: nil, last_name: nil, email: nil}
+  @create_attrs %{desc: "some desc", email: "some email", first_name: "some first_name", last_name: "some last_name", phone_number: "some phone_number", address_line_1: "some address_line_1", address_line_2: "some address_line_2", postcode: "some postcode", gender: "some gender", diet_pref: "some diet_pref", website: "some website", feedback: "some feedback"}
+  @update_attrs %{desc: "some updated desc", email: "some updated email", first_name: "some updated first_name", last_name: "some updated last_name", phone_number: "some updated phone_number", address_line_1: "some updated address_line_1", address_line_2: "some updated address_line_2", postcode: "some updated postcode", gender: "some updated gender", diet_pref: "some updated diet_pref", website: "some updated website", feedback: "some updated feedback"}
+  @invalid_attrs %{desc: nil, email: nil, first_name: nil, last_name: nil, phone_number: nil, address_line_1: nil, address_line_2: nil, postcode: nil, gender: nil, diet_pref: nil, website: nil, feedback: nil}
 
   defp create_attendee(_) do
     attendee = attendee_fixture()
@@ -20,7 +20,7 @@ defmodule FieldsDemoWeb.AttendeeLiveTest do
       {:ok, _index_live, html} = live(conn, ~p"/attendees")
 
       assert html =~ "Listing Attendees"
-      assert html =~ attendee.first_name
+      assert html =~ attendee.desc
     end
 
     test "saves new attendee", %{conn: conn} do
@@ -43,7 +43,7 @@ defmodule FieldsDemoWeb.AttendeeLiveTest do
 
       html = render(index_live)
       assert html =~ "Attendee created successfully"
-      assert html =~ "some first_name"
+      assert html =~ "some desc"
     end
 
     test "updates attendee in listing", %{conn: conn, attendee: attendee} do
@@ -66,7 +66,7 @@ defmodule FieldsDemoWeb.AttendeeLiveTest do
 
       html = render(index_live)
       assert html =~ "Attendee updated successfully"
-      assert html =~ "some updated first_name"
+      assert html =~ "some updated desc"
     end
 
     test "deletes attendee in listing", %{conn: conn, attendee: attendee} do
@@ -84,7 +84,7 @@ defmodule FieldsDemoWeb.AttendeeLiveTest do
       {:ok, _show_live, html} = live(conn, ~p"/attendees/#{attendee}")
 
       assert html =~ "Show Attendee"
-      assert html =~ attendee.first_name
+      assert html =~ attendee.desc
     end
 
     test "updates attendee within modal", %{conn: conn, attendee: attendee} do
@@ -107,7 +107,7 @@ defmodule FieldsDemoWeb.AttendeeLiveTest do
 
       html = render(show_live)
       assert html =~ "Attendee updated successfully"
-      assert html =~ "some updated first_name"
+      assert html =~ "some updated desc"
     end
   end
 end

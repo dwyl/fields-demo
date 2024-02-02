@@ -15,6 +15,15 @@
   <:col :let={{_id, attendee}} label="First name"><%= attendee.first_name %></:col>
   <:col :let={{_id, attendee}} label="Last name"><%= attendee.last_name %></:col>
   <:col :let={{_id, attendee}} label="Email"><%= attendee.email %></:col>
+  <:col :let={{_id, attendee}} label="Phone number"><%= attendee.phone_number %></:col>
+  <:col :let={{_id, attendee}} label="Address line 1"><%= attendee.address_line_1 %></:col>
+  <:col :let={{_id, attendee}} label="Address line 2"><%= attendee.address_line_2 %></:col>
+  <:col :let={{_id, attendee}} label="Postcode"><%= attendee.postcode %></:col>
+  <:col :let={{_id, attendee}} label="Gender"><%= attendee.gender %></:col>
+  <:col :let={{_id, attendee}} label="Diet pref"><%= attendee.diet_pref %></:col>
+  <:col :let={{_id, attendee}} label="Website"><%= attendee.website %></:col>
+  <:col :let={{_id, attendee}} label="Desc"><%= attendee.desc %></:col>
+  <:col :let={{_id, attendee}} label="Feedback"><%= attendee.feedback %></:col>
   <:action :let={{_id, attendee}}>
     <div class="sr-only">
       <.link navigate={~p"/attendees/#{attendee}"}>Show</.link>
