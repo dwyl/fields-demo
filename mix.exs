@@ -58,7 +58,7 @@ defmodule FieldsDemo.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       # The star of the show: github.com/dwyl/fields
-      {:fields, "~> 2.10.3"},
+      {:fields, "~> 2.11.0"},
 
       # Track test coverage: github.com/parroty/excoveralls
       {:excoveralls, "~> 0.18.0", only: [:test, :dev]}
