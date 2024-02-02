@@ -9,6 +9,7 @@ defmodule FieldsDemo.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
+      compilers: [:leex] ++ Mix.compilers(),
       deps: deps(),
       # coverage ref: https://github.com/dwyl/phoenix-chat-example#13-what-is-not-tested
       test_coverage: [tool: ExCoveralls],
