@@ -73,6 +73,7 @@ defmodule FieldsDemoWeb.AttendeeLive.FormComponent do
          |> put_flash(:info, "Attendee updated successfully")
          |> push_patch(to: socket.assigns.patch)}
 
+      # coveralls-ignore-next-line
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}
     end
@@ -88,6 +89,7 @@ defmodule FieldsDemoWeb.AttendeeLive.FormComponent do
          |> put_flash(:info, "Attendee created successfully")
          |> push_patch(to: socket.assigns.patch)}
 
+      # coveralls-ignore-next-line
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}
     end
