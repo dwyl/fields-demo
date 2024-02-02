@@ -22,6 +22,15 @@ defmodule FieldsDemoWeb.AttendeeLive.FormComponent do
         <.input field={@form[:first_name]} type="text" label="First name" />
         <.input field={@form[:last_name]} type="text" label="Last name" />
         <.input field={@form[:email]} type="text" label="Email" />
+        <.input field={@form[:phone_number]} type="text" label="Phone number" />
+        <.input field={@form[:address_line_1]} type="text" label="Address line 1" />
+        <.input field={@form[:address_line_2]} type="text" label="Address line 2" />
+        <.input field={@form[:postcode]} type="text" label="Postcode" />
+        <.input field={@form[:gender]} type="text" label="Gender" />
+        <.input field={@form[:diet_pref]} type="text" label="Diet pref" />
+        <.input field={@form[:website]} type="text" label="Website" />
+        <.input field={@form[:desc]} type="text" label="Desc" />
+        <.input field={@form[:feedback]} type="text" label="Feedback" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Attendee</.button>
         </:actions>
@@ -64,6 +73,7 @@ defmodule FieldsDemoWeb.AttendeeLive.FormComponent do
          |> put_flash(:info, "Attendee updated successfully")
          |> push_patch(to: socket.assigns.patch)}
 
+      # coveralls-ignore-next-line
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}
     end
@@ -79,6 +89,7 @@ defmodule FieldsDemoWeb.AttendeeLive.FormComponent do
          |> put_flash(:info, "Attendee created successfully")
          |> push_patch(to: socket.assigns.patch)}
 
+      # coveralls-ignore-next-line
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}
     end
