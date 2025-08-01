@@ -61,7 +61,9 @@ defmodule FieldsDemo.MixProject do
       {:fields, "~> 2.11.0"},
 
       # Track test coverage: github.com/parroty/excoveralls
-      {:excoveralls, "~> 0.18.0", only: [:test, :dev]}
+      {:excoveralls, "~> 0.18.0", only: [:test, :dev]},
+
+      {:lazy_html, ">= 0.1.0", only: :test}
     ]
   end
 
