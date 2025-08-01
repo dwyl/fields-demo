@@ -48,7 +48,7 @@ defmodule FieldsDemo.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 4.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 1.0.1"},
+      {:phoenix_live_view, "~> 1.1.2"},
       {:floki, ">= 0.30.0", only: :test},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.3.1", runtime: Mix.env() == :dev},
@@ -61,7 +61,9 @@ defmodule FieldsDemo.MixProject do
       {:fields, "~> 2.11.0"},
 
       # Track test coverage: github.com/parroty/excoveralls
-      {:excoveralls, "~> 0.18.0", only: [:test, :dev]}
+      {:excoveralls, "~> 0.18.0", only: [:test, :dev]},
+
+      {:lazy_html, ">= 0.1.0", only: :test}
     ]
   end
 
